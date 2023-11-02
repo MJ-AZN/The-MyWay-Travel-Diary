@@ -1,0 +1,26 @@
+{
+  "name": "travel-log-app",
+  "version": "1.0.0",
+  "description": "Traveled the wworld? Tell us about it!",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "npm test",
+    "develop": "concurrently \"npm run watch\" \"npm run client\"",
+    "watch": "cd server && npm run watch",
+    "client": "cd client && npm run dev",
+    "install": "cd server && npm install && cd ../client && npm install",
+    "server": "cd server && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "travel-log-app"
+  },
+  "author": "Michael Joseph V. Ibarra",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "mapbox-gl": "^2.15.0"
+  }
+}
