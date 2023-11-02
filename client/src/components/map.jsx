@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl';
 const MapView = () => {
   useEffect(() => {
     // Initialize Mapbox map here
-    mapboxgl.accessToken = 'pk.eyJ1IjoibWotYXpuIiwiYSI6ImNsb2htZXJtdDBkanEya3BxcHdjYzZlbmUifQ.WJWaT0Yibp3h9zNzvxi9oQ';
+    mapboxgl.accessToken = import.meta.env.VITE_MAPTOKEN
     const map = new mapboxgl.Map({
       container: 'map-container', // HTML element to hold the map
       style: 'mapbox://styles/mapbox/streets-v11', // Example map style
