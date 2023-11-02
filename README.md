@@ -1,1 +1,0 @@
-# The-MyWay-Travel-Diary
