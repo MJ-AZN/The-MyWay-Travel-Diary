@@ -1,7 +1,7 @@
-// client/src/components/MapView.jsx
 import React, { useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import SideMenu from './SideMenu';
+import LocationMarker from './LocationMarker';
 
 const MapView = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,6 +15,7 @@ const MapView = () => {
       style: 'mapbox://styles/mapbox/streets-v11', // Example map style
       center: [-74.5, 40], // Initial center coordinates (longitude, latitude)
       zoom: 5, // Initial zoom level
+      doubleClickZoom: false,
     });
 
     map.on('dblclick', (e) => {
@@ -40,6 +41,7 @@ const MapView = () => {
   return (
     <>
       <div id="map-container" style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }} />
+      {coordinates && <LocationMarker coordinates={coordinates} />}
       <SideMenu isOpen={menuOpen} onClose={closeMenu} />
     </>
   );
