@@ -1,16 +1,10 @@
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
-const markerRoutes = require('.routes/marker-routes');
+const db = require('./config/connection')
+const markerRoutes = require('./routes/marker-routes');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const app = express();
-
-// Connect to your MongoDB database
-mongoose.connect('mongodb://localhost:27017/travel-log', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 // Middleware to handle JSON data
 app.use(express.urlencoded({ extended: false }));
@@ -29,6 +23,10 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api', markerRoutes);
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`API server running on port ${PORT}!`);
+db.once('open',() =>{
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+  });
 });
+
+
