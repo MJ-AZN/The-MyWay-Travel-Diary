@@ -5,7 +5,7 @@ import LocationMarker from './LocationMarker';
 
 const MapView = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [coordinates, setCoordinates] = useState(null);
+  const [map, setMap] = useState(null);
 
   useEffect(() => {
     // Initialize Mapbox map here
@@ -18,10 +18,12 @@ const MapView = () => {
       doubleClickZoom: false,
     });
 
+    setMap(map);
+
     map.on('dblclick', (e) => {
       const { lng, lat } = e.lngLat;
-      setCoordinates({ lng, lat });
       setMenuOpen(true);
+      map.flyTo({ center: [lng, lat], zoom: 14 }); // Fly to the marker on double click
     });
 
     map.on('click', (e) => {
@@ -41,7 +43,7 @@ const MapView = () => {
   return (
     <>
       <div id="map-container" style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }} />
-      {coordinates && <LocationMarker coordinates={coordinates} />}
+      {map && <LocationMarker map={map} />}
       <SideMenu isOpen={menuOpen} onClose={closeMenu} />
     </>
   );

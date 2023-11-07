@@ -45,16 +45,6 @@
   font-size: 16px;
 }
 
-.location-marker {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: red;
-  transform: translate(-50%, -50%);
-}
-
-
 /* Adjust this style as needed */
 #map-container {
   transition: margin-left 0.3s ease;
