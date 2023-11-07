@@ -4,7 +4,6 @@
   "description": "Traveled the wworld? Tell us about it!",
   "main": "server/server.js",
   "scripts": {
-    "start": "npm run develop",
     "test": "npm test",
     "develop": "concurrently \"npm run watch\" \"npm run client\"",
     "watch": "cd server && npm run watch",
