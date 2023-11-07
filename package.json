@@ -18,7 +18,10 @@
   "author": "Michael Joseph V. Ibarra",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
   },
   "dependencies": {
     "mapbox-gl": "^2.15.0"

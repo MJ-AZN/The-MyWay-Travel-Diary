@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* client/src/app.css */
 .side-menu {
   position: absolute;

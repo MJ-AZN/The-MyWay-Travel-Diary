@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import SideMenu from './SideMenu';
 import LocationMarker from './LocationMarker';
+import Header from './Header';
 
 const MapView = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,6 +23,7 @@ const MapView = () => {
 
     map.on('dblclick', (e) => {
       const { lng, lat } = e.lngLat;
+      console.log(`Clicked coordinates: ${lng}, ${lat}`);
       setMenuOpen(true);
       map.flyTo({ center: [lng, lat], zoom: 14 }); // Fly to the marker on double click
     });
@@ -42,11 +44,13 @@ const MapView = () => {
 
   return (
     <>
-      <div id="map-container" style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }} />
+      <Header />
+      <div id="map-container" style={{ position: 'absolute', top: '4rem', bottom: 0, left: 0, right: 0, margin: '1rem' }} />
       {map && <LocationMarker map={map} />}
       <SideMenu isOpen={menuOpen} onClose={closeMenu} />
     </>
   );
+  
 };
 
 export default MapView;
